@@ -11,9 +11,6 @@ public class Member {
     private String username;
     private int age;
 
-
-
-
     public Member() {
     }
 

@@ -6,16 +6,19 @@
     <link href="../css/bootstrap.min.css"
           th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
     <style>
-.container {
-max-width: 560px;
-}
-</style>
+    .container {
+    max-width: 560px;
+    }
+    </style>
 </head>
 <body>
 <div class="container">
     <div class="py-5 text-center">
         <h2>상품 상세</h2>
     </div>
+    <!--  상품 저장 되면 저장완료 보여주기 -->
+    <h2 th:if="${param.status}">상품 저장 완료</h2>
+
     <div>
         <label for="itemId">상품 ID</label>
         <input type="text" id="itemId" name="itemId" class="form-control"
@@ -50,6 +53,13 @@ max-width: 560px;
                 th:onclick="|location.href='@{/basic/items}'|"
                 type="button">목록으로</button>
     </div>
+    <div class="col">
+        <form th:action="|/basic/items/${item.id}|" method="POST">
+            <button class="w-100 btn btn-secondary btn-lg"
+                    type="submit">삭제</button>
+        </form>
+    </div>
+
 </div>
 </div> <!-- /container -->
 </body>
